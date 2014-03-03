@@ -7,5 +7,6 @@
   <modules>
   	<module>rgn_dodling_dflt</module>
   	<module>rgn_doodling_dflt</module>
+  	<module>rgn_doodling_axon2</module>
   </modules>
 </project>
