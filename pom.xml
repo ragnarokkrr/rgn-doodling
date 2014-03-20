@@ -8,5 +8,7 @@
   	<module>rgn_dodling_dflt</module>
   	<module>rgn_doodling_dflt</module>
   	<module>rgn_doodling_axon2</module>
+  	<module>rgn_doodling_tomcat</module>
+  	<module>rgn_doodling_ddd_csharp_in_java</module>
   </modules>
 </project>
