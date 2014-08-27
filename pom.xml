@@ -1,15 +1,31 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.ragna</groupId>
-  <artifactId>rgn_doodling</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <modules>
-  	<module>rgn_dodling_dflt</module>
-  	<module>rgn_doodling_dflt</module>
-  	<module>rgn_doodling_axon2</module>
-  	<module>rgn_doodling_tomcat</module>
-  	<module>rgn_doodling_ddd_csharp_in_java</module>
-  	<module>rgn_doodling_ipojo</module>
-  </modules>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.ragna</groupId>
+    <artifactId>rgn_doodling</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>rgn_dodling_dflt</module>
+        <module>rgn_doodling_dflt</module>
+        <module>rgn_doodling_axon2</module>
+        <module>rgn_doodling_tomcat</module>
+        <module>rgn_doodling_ddd_csharp_in_java</module>
+        <module>rgn_doodling_ipojo</module>
+    </modules>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <!-- or whatever version you use -->
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
