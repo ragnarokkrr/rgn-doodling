@@ -6,12 +6,8 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>rgn_dodling_dflt</module>
         <module>rgn_doodling_dflt</module>
-        <module>rgn_doodling_axon2</module>
-        <module>rgn_doodling_tomcat</module>
-        <module>rgn_doodling_ddd_csharp_in_java</module>
-        <module>rgn_doodling_ipojo</module>
+        <module>rgn_doodling_j8</module>
     </modules>
 
 
@@ -20,10 +16,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.0</version>
                 <configuration>
-                    <!-- or whatever version you use -->
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <testSource>1.8</testSource>
+                    <testTarget>1.8</testTarget>
                 </configuration>
             </plugin>
         </plugins>
