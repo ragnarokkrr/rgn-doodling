@@ -1,0 +1,35 @@
+group 'ragna'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+
+version = '1.0'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'com.yammer.dropwizard:dropwizard-core:0.6.2'
+    compile 'com.hubspot.dropwizard:dropwizard-guice:1.0.6.0'
+    compile 'com.google.inject:guice:4.1.0'
+}
+
+//create a single jar with all dependencies
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File example',
+                'Implementation-Version': version,
+                'Main-Class': 'ragna.ServerApplication'
+    }
+
+    baseName = project.name + '.all'
+    from {configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }}
+    with jar
+}
