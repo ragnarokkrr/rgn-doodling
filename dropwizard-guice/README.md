@@ -17,3 +17,4 @@ $ curl http://localhost:8080/hello/from-component
 ## Ref
 
 * [dropwizard-and-guice](https://dzone.com/articles/dropwizard-and-guice)
+* [Gradle – Create a Jar file with dependencies](https://www.mkyong.com/gradle/gradle-create-a-jar-file-with-dependencies/)
