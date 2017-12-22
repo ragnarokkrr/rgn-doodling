@@ -18,3 +18,7 @@ $ curl http://localhost:8080/hello/from-component
 
 * [dropwizard-and-guice](https://dzone.com/articles/dropwizard-and-guice)
 * [Gradle – Create a Jar file with dependencies](https://www.mkyong.com/gradle/gradle-create-a-jar-file-with-dependencies/)
+
+
+
+http://www.dropwizard.io/0.7.1/docs/manual/jdbi.html
