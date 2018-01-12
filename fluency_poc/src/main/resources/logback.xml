@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE logback>
+<configuration>
+
+    <include resource="logback-appender.xml" />
+
+    <include resource="logback-${FLUENTD_APPENDER}-appender.xml" />
+
+    <root>
+        <level value="DEBUG" />
+        <appender-ref ref="FLUENTD" />
+        <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>

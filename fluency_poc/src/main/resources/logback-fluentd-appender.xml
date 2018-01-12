@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE logback>
+<included>
+
+    <appender name="FLUENTD_SYNC"
+              class="ch.qos.logback.more.appenders.DataFluentAppender">
+
+        <!-- Tag for Fluentd. Farther information: http://docs.fluentd.org/articles/config-file -->
+        <tag>test.tag.fluency.logback.appender</tag>
+        <!-- [Optional] Label for Fluentd. Farther information: http://docs.fluentd.org/articles/config-file -->
+        <!--<label>logback</label> -->
+        <!-- Host name/address and port number which Flentd placed -->
+        <remoteHost>${FLUENTD_HOSTNAME}</remoteHost>
+        <port>24224</port>
+        <!-- Additional fields(Pairs of key: value) -->
+        <additionalField>
+            <key>foo</key>
+            <value>bar</value>
+        </additionalField>
+        <additionalField>
+            <key>foo2</key>
+            <value>bar2</value>
+        </additionalField>
+    </appender>
+
+
+    <appender name="FLUENTD" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- Max queue size of logs which is waiting to be sent (When it reach to the max size, the log will be disappeared). -->
+        <queueSize>999</queueSize>
+        <maxFlushTime>1000</maxFlushTime>
+        <includeCallerData>false</includeCallerData>
+        <discardingThreshold>0</discardingThreshold>
+        <appender-ref ref="FLUENTD_SYNC" />
+    </appender>
+
+</included>

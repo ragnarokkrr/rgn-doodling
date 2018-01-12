@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE logback>
+<included>
+
+
+    <appender name="FLUENTD" class="ch.qos.logback.more.appenders.FluencyLogbackAppender">
+        <!-- Tag for Fluentd. Farther information: http://docs.fluentd.org/articles/config-file -->
+        <tag>test.tag.fluency.logback.appender</tag>
+
+        <!-- Host name/address and port number which Flentd placed -->
+        <remoteHost>${FLUENTD_HOSTNAME}</remoteHost>
+        <port>24224</port>
+
+        <!-- [Optional] Multiple name/addresses and port numbers which Flentd placed -->
+        <!--
+        <remoteServers>
+            <remoteServer>
+                <host>primary</host>
+                <port>24224</port>
+            </remoteServer>
+            <remoteServer>
+                <host>secondary</host>
+                <port>24224</port>
+            </remoteServer>
+        </remoteServers>
+        -->
+
+        <!-- [Optional] Additional fields(Pairs of key: value) -->
+        <additionalField>
+            <key>foo</key>
+            <value>bar</value>
+        </additionalField>
+        <additionalField>
+            <key>foo2</key>
+            <value>bar2</value>
+        </additionalField>
+
+        <!-- [Optional] Configurations to customize Fluency's behavior: https://github.com/komamitsu/fluency#usage  -->
+
+        <ackResponseMode>false</ackResponseMode>
+
+        <fileBackupDir>/tmp/fluency</fileBackupDir>
+        <bufferChunkInitialSize>2097152</bufferChunkInitialSize>
+        <bufferChunkRetentionSize>16777216</bufferChunkRetentionSize>
+        <maxBufferSize>268435456</maxBufferSize>
+        <waitUntilBufferFlushed>30</waitUntilBufferFlushed>
+        <waitUntilFlusherTerminated>40</waitUntilFlusherTerminated>
+        <flushIntervalMillis>200</flushIntervalMillis>
+        <senderMaxRetryCount>12</senderMaxRetryCount>
+
+        <!-- [Optional] Enable/Disable use of EventTime to get sub second resolution of log event date-time -->
+        <!-- TRUE is not working -->
+        <useEventTime>false</useEventTime>
+
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern><![CDATA[%date{HH:mm:ss.SSS} [%thread] %-5level %logger{15}#%line %msg]]></pattern>
+        </layout>
+    </appender>
+
+</included>

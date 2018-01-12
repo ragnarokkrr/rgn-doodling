@@ -1,0 +1,53 @@
+group 'ragna'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.2'
+    }
+}
+
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+
+mainClassName = 'ragna.MoreAppendersLogAppenderPOC'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+    compile group: 'org.komamitsu', name: 'fluency', version: '1.7.0'
+    compile group: 'com.sndyuk', name: 'logback-more-appenders', version: '1.4.3'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+
+    compile group: 'org.fluentd', name: 'fluent-logger', version: '0.3.3'
+}
+
+
+shadowJar {
+    baseName = 'fluentd-poc'
+    mergeServiceFiles()
+    exclude 'META-INF/*.DSA'
+    exclude 'META-INF/*.RSA'
+}
+
+
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}
