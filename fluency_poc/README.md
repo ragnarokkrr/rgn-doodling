@@ -62,7 +62,7 @@ docker top fluentd
 * [Dockerfile reference](https://docs.docker.com/engine/reference/builder/#usage)
 * [Installing Fluentd with Docker](https://docs.fluentd.org/v0.12/articles/install-by-docker)
 * [docker pull fluent/fluentd](https://github.com/fluent/fluentd-kubernetes-daemonset)
-* [fluent/fluentd](https://hub.docker.com/r/fluent/fluentd/)
+* [fluent/fluentd (docker image customization)](https://hub.docker.com/r/fluent/fluentd/)
 * [fluency](https://github.com/komamitsu/fluency)
 * [fluent-logger-java](https://ithub.com/fluent/fluent-logger-java)
 * [Shadow Plugin User Guide & Examples](http://imperceptiblethoughts.com/shadow/)
