@@ -3,6 +3,7 @@ package ragna;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Optional;
 import java.util.stream.IntStream;
 
 /**
@@ -13,19 +14,27 @@ public class MoreAppendersLogAppenderPOC {
 
     public static void main(String[] args) {
         String appender = System.getenv("FLUENTD_APPENDER");
+        Integer fluentdWaves = Integer.valueOf (Optional.ofNullable (System.getenv("FLUENTD_WAVES")).orElse ("1"));
 
         System.out.println ("BEGIN: " + appender);
+        System.out.println ("Waves: " + fluentdWaves);
 
 
-        pause (2000);
 
+        IntStream.rangeClosed (1,fluentdWaves).forEach (j ->{
+            pause (2000);
 
-        IntStream.range (1,10000).forEach (i -> {
-            LOG.info("Test Info message - '" + appender + "' A: " + i);
+            System.out.println ("BEGIN WAVE: " + j);
+
+            IntStream.range (1,10000).forEach (i -> {
+                LOG.info("Wave: " + j + " Test Info message - '" + appender + "' A: " + i);
+            });
+
+            pause (10000);
+
         });
 
 
-        pause (10000);
 
 
         System.out.println ("OK");
