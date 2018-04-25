@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  my-neo4j-rest:
+    image: neo4j:3.3.4
+    volumes:
+      - neo4j-rest-vol-data:/data
+      #- neo4j-vol-logs:/logs doesn't work after 3.0
+    networks:
+      - net-neo4j-rest-db
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+
+networks:
+  net-neo4j-rest-db:
+    driver: bridge
+
+volumes:
+  neo4j-rest-vol-data:
+    driver: local
+#  neo4j-vol-logs:
+#    driver: local
+
+
+
