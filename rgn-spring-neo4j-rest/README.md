@@ -54,7 +54,6 @@ Transfer-Encoding: chunked
     }
 }
 
-# creating a people
 $ http POST localhost:8080/people Content-Type:application/json firstName=Frodo lastName=Baggins
 HTTP/1.1 201
 Content-Type: application/json;charset=UTF-8
