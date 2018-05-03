@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  mycassandra:
+    #image: spotify/cassandra:latest (2.0.1)
+    image: cassandra:3.11.2
+    ports:
+      - 9160:9160
+      - 9042:9042
+
+  helenos:
+    image: emdem/helenos
+    ports:
+      - 9000:8080
+    links:
+      - "mycassandra:cassandra"
