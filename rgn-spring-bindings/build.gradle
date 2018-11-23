@@ -1,0 +1,43 @@
+buildscript {
+    repositories { mavenCentral() }
+
+    //missing on howto
+    dependencies{
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.1.RELEASE")
+    }
+}
+
+plugins { id "io.spring.dependency-management" version "1.0.4.RELEASE" }
+
+ext { springBootVersion = '2.0.1.RELEASE' }
+
+apply plugin: 'java'
+apply plugin: 'idea'
+//missing on howto
+apply plugin: 'org.springframework.boot'
+
+
+jar {
+    baseName = 'gs-testing-web'
+    version = 'idea'
+}
+
+group 'ragna'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.16.20'
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.6'
+}

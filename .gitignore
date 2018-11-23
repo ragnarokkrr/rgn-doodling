@@ -1,0 +1,209 @@
+#
+# NOTE! Don't add files that are generated in specific
+# subdirectories here. Add them in the ".gitignore" file
+# in that subdirectory instead.
+#
+# NOTE! Please use 'git ls-files -i --exclude-standard'
+# command after changing this file, to see if there are
+# any tracked files which get ignored after the change.
+#
+# Normal rules (sorted alphabetically)
+#
+.*
+*.a
+*.bin
+*.bz2
+*.c.[012]*.*
+*.dtb
+*.dtb.S
+*.dwo
+*.elf
+*.gcno
+*.gz
+*.i
+*.ko
+*.ll
+*.lst
+*.lz4
+*.lzma
+*.lzo
+*.mod.c
+*.o
+*.o.*
+*.order
+*.patch
+*.s
+*.so
+*.so.dbg
+*.su
+*.symtypes
+*.tar
+*.xz
+Module.symvers
+modules.builtin
+
+#
+# Top-level generic files
+#
+/tags
+/TAGS
+/linux
+/vmlinux
+/vmlinux.32
+/vmlinux-gdb.py
+/vmlinuz
+/System.map
+/Module.markers
+
+#
+# RPM spec file (make rpm-pkg)
+#
+/*.spec
+
+#
+# Debian directory (make deb-pkg)
+#
+/debian/
+
+#
+# tar directory (make tar*-pkg)
+#
+/tar-install/
+
+#
+# git files that we don't want to ignore even if they are dot-files
+#
+!.gitignore
+!.mailmap
+!.cocciconfig
+
+#
+# Generated include files
+#
+include/config
+include/generated
+arch/*/include/generated
+
+# stgit generated dirs
+patches-*
+
+# quilt's files
+patches
+series
+
+# cscope files
+cscope.*
+ncscope.*
+
+# gnu global files
+GPATH
+GRTAGS
+GSYMS
+GTAGS
+
+# id-utils files
+ID
+
+*.orig
+*~
+\#*#
+
+#
+# Leavings from module signing
+#
+extra_certificates
+signing_key.pem
+signing_key.priv
+signing_key.x509
+x509.genkey
+
+# Kconfig presets
+all.config
+
+# Kdevelop4
+*.kdev4
+
+
+
+
+
+
+
+
+
+# Created by https://www.gitignore.io/api/intellij
+
+### Intellij ###
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
+# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+
+.idea/**
+
+# User-specific stuff:
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
+
+# Sensitive or high-churn files:
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.xml
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+
+# Gradle:
+.idea/**/gradle.xml
+.idea/**/libraries
+
+# CMake
+cmake-build-debug/
+
+# Mongo Explorer plugin:
+.idea/**/mongoSettings.xml
+
+## File-based project format:
+*.iws
+
+## Plugin-specific files:
+
+# IntelliJ
+/out/
+/bin/
+
+bin
+out
+build
+
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Cursive Clojure plugin
+.idea/replstate.xml
+
+# Ruby plugin and RubyMine
+/.rakeTasks
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+### Intellij Patch ###
+# Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
+
+# *.iml
+# modules.xml
+# .idea/misc.xml
+# *.ipr
+
+# Sonarlint plugin
+.idea/sonarlint
+
+# End of https://www.gitignore.io/api/intellij
