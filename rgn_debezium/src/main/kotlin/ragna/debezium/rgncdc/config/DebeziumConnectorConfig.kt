@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration
 
 
 @Configuration
-class ApplicationConfiguration {
+class DebeziumConnectorConfig {
     @Value("\${student.datasource.host}")
     private val studentDBHost: String? = null
 

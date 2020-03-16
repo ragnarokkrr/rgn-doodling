@@ -10,16 +10,15 @@ import ragna.debezium.rgncdc.utils.Operation
 @Service
 class StudentService(private val studentRepository: StudentRepository) {
 
-    fun maintainReadModel(studentData: Map<String, Any>, operation: Operation): Unit {
+    fun maintainReadModel(studentData: Map<String, Any>, operation: Operation) {
         val mapper = jacksonObjectMapper()
         val student: Student = mapper.convertValue(studentData)
 
         if (Operation.DELETE == operation) {
             studentRepository.deleteById(student.id)
-        } else {
-            studentRepository.save(student)
+            return
         }
-
+        studentRepository.save(student)
     }
 
 }
