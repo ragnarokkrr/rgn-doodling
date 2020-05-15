@@ -1,5 +1,8 @@
 package ragna.rgn_bff
 
+import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.async
+import kotlinx.coroutines.runBlocking
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -23,7 +26,7 @@ class EmployeeAggregateController(
 ) {
     //   private val logger = LoggerFactory.getLogger(javaClass)
 
-    @GetMapping("/employees/{id}")
+    @GetMapping("/ui/v1/employees/{id}")
     fun getAggregateEmployee(@PathVariable id: Long): EmployeeAggregate {
 
         val dept = deptClient.getById(id) ?: Dept()
@@ -38,22 +41,45 @@ class EmployeeAggregateController(
 
         return employeeAggregate;
     }
+
+    @GetMapping("/ui/v1/async/employees/{id}")
+    fun getAggregateEmployeeAsync(@PathVariable id: Long): EmployeeAggregate = runBlocking {
+        val deptDeferred: Deferred<Dept> = async {
+            deptClient.getById(id)!!
+        }
+
+        val employeeDeferred: Deferred<Employee> = async {
+            employeeClient.getById(id)!!
+        }
+
+        val dept = deptDeferred.await()
+        val employee = employeeDeferred.await()
+
+        val employeeAggregate = EmployeeAggregate(
+                id = employee.id,
+                name = employee.name,
+                deptId = dept.id,
+                deptName = dept.name
+        )
+
+        employeeAggregate;
+    }
+
 }
 
 @Component
 class DeptClient {
     //   private val logger = LoggerFactory.getLogger(javaClass)
     fun getById(id: Long): Dept? {
-        return RestTemplate().getForObject("http://127.0.0.1:8082/depts/$id", Dept::class.java);
+        return RestTemplate().getForObject("http://127.0.0.1:8082/api/v1/depts/$id", Dept::class.java);
     }
 }
 
 @Component
 class EmployeeClient {
-
     //  private val logger = LoggerFactory.getLogger(javaClass)
     fun getById(id: Long): Employee? {
-        return RestTemplate().getForObject("http://localhost:8081/employees/$id", Employee::class.java);
+        return RestTemplate().getForObject("http://localhost:8081/api/v1/employees/$id", Employee::class.java);
     }
 }
 
@@ -80,4 +106,3 @@ data class Dept(
         val id: Long = 0,
         val name: String = ""
 )
-

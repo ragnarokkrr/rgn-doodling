@@ -30,11 +30,11 @@ class EmployeeController {
     @Autowired
     DeptRepository deptRepository;
 
-    @GetMapping("/depts/{id}")
+    @GetMapping("/api/v1/depts/{id}")
     public Dept findById(@PathVariable Long id) throws InterruptedException {
         log.info("Dept - finding by id ({})", id);
-        log.info("Waiting 2 secs...");
-        TimeUnit.SECONDS.sleep(2L);
+        log.info("Waiting 4 secs...");
+        TimeUnit.SECONDS.sleep(4L);
         return deptRepository.findById(id);
     }
 }

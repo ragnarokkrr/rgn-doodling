@@ -29,7 +29,7 @@ class EmployeeController {
     @Autowired
     EmployeeRepository employeeRepository;
 
-    @GetMapping("/employees/{id}")
+    @GetMapping("/api/v1/employees/{id}")
     public Employee findById(@PathVariable Long id) throws InterruptedException {
         log.info("Employee - finding by id ({})", id);
         log.info("Waiting 5secs...");
