@@ -1,6 +1,7 @@
 package ragna.rgn_bff
 
 import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
 import org.springframework.beans.factory.annotation.Autowired
@@ -44,14 +45,13 @@ class EmployeeAggregateController(
 
     @GetMapping("/ui/v1/async/employees/{id}")
     fun getAggregateEmployeeAsync(@PathVariable id: Long): EmployeeAggregate = runBlocking {
-        val deptDeferred: Deferred<Dept> = async {
+        val deptDeferred: Deferred<Dept> = GlobalScope.async {
             deptClient.getById(id)!!
         }
 
-        val employeeDeferred: Deferred<Employee> = async {
+        val employeeDeferred: Deferred<Employee> = GlobalScope.async {
             employeeClient.getById(id)!!
         }
-
         val dept = deptDeferred.await()
         val employee = employeeDeferred.await()
 
@@ -70,6 +70,10 @@ class EmployeeAggregateController(
 @Component
 class DeptClient {
     //   private val logger = LoggerFactory.getLogger(javaClass)
+    suspend fun getByIdAsync(id: Long): Dept? {
+        return getById(id)
+    }
+
     fun getById(id: Long): Dept? {
         return RestTemplate().getForObject("http://127.0.0.1:8082/api/v1/depts/$id", Dept::class.java);
     }
@@ -78,6 +82,10 @@ class DeptClient {
 @Component
 class EmployeeClient {
     //  private val logger = LoggerFactory.getLogger(javaClass)
+    suspend fun getByIdAsync(id: Long): Employee? {
+        return getById(id)
+    }
+
     fun getById(id: Long): Employee? {
         return RestTemplate().getForObject("http://localhost:8081/api/v1/employees/$id", Employee::class.java);
     }
