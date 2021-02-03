@@ -24,10 +24,13 @@ public class AppRunner implements CommandLineRunner {
     final var page3 = gitHubLookupService.findUser("CloudFoundry");
     final var page4 = gitHubLookupService.findUser("Spring-Projects");
 
-    CompletableFuture.allOf(page1, page2, page3, page4).join();
+    final var handle = page1.handle((user, throwable) -> user.toString() + "111");
+
+    CompletableFuture.allOf(page1, page2, page3, page4, handle).join();
 
     log.info("Elapsed time: {}", System.currentTimeMillis() - start);
     log.info("\tp1-> {}", page1.get());
+    log.info("\tp1-> {}", handle.get());
     log.info("\tp2-> {}", page2.get());
     log.info("\tp3-> {}", page3.get());
     log.info("\tp4-> {}", page4.get());
