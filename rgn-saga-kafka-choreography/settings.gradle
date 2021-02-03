@@ -1,0 +1,11 @@
+rootProject.name = 'rgn-choreography'
+
+include ':rgn-choreography-common-dto'
+include ':rgn-choreography-inventory-service'
+include ':rgn-choreography-order-service'
+include ':rgn-choreography-payment-service'
+
+project(':rgn-choreography-common-dto').projectDir  = file('common-dto')
+project(':rgn-choreography-inventory-service').projectDir  = file('inventory-service')
+project(':rgn-choreography-order-service').projectDir  = file('order-service')
+project(':rgn-choreography-payment-service').projectDir  = file('payment-service')

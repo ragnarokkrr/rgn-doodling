@@ -1,0 +1,12 @@
+dependencies {
+    implementation project(':rgn-choreography-common-dto')
+}
+
+
+bootJar {
+    enabled = true
+}
+
+jar {
+    enabled = true
+}
