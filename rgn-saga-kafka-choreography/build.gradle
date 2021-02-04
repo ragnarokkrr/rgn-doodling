@@ -1,0 +1,84 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+}
+
+plugins {
+	id 'org.springframework.boot' version '2.4.2'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+    id 'com.github.sherter.google-java-format' version '0.9'
+    id 'java-library'
+
+}
+
+
+allprojects {
+	group = 'ragna.saga'
+	version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = JavaVersion.VERSION_15
+    targetCompatibility = JavaVersion.VERSION_15
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/release" }
+        maven { url "https://repo.spring.io/milestone" }
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+
+	ext {
+		set('springCloudVersion', "2020.0.0")
+	}
+
+
+
+
+}
+
+subprojects {
+    apply plugin: 'java-library'
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'com.github.sherter.google-java-format'
+
+	configurations {
+		compileOnly {
+			extendsFrom annotationProcessor
+		}
+	}
+
+
+	dependencies {
+		implementation 'org.springframework.boot:spring-boot-starter-webflux'
+		implementation 'org.springframework.cloud:spring-cloud-starter-task'
+		compileOnly 'org.projectlombok:lombok'
+		annotationProcessor 'org.projectlombok:lombok'
+		testImplementation 'org.springframework.boot:spring-boot-starter-test'
+		testImplementation 'io.projectreactor:reactor-test'
+	}
+
+	/*
+	idea{
+		module{
+			inheritOutputDirs = false
+			outputDir = compileJava.destinationDir
+			testOutputDir = compileTestJava.destinationDir
+		}
+	}
+	 */
+
+	test {
+		useJUnitPlatform()
+	}
+
+	dependencyManagement {
+		imports {
+			mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+		}
+	}
+
+}
+
