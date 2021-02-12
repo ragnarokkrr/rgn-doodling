@@ -7,7 +7,7 @@ import ragna.az.function.hello.model.User;
 
 import java.util.function.Function;
 
-@Component
+@Component("hello")
 @Slf4j
 public class HelloFunction implements Function<User, Greeting> {
     @Override
