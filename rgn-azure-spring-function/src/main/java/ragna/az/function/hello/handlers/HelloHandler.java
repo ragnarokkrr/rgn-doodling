@@ -1,4 +1,4 @@
-package ragna.az.function.hello;
+package ragna.az.function.hello.handlers;
 
 import com.microsoft.azure.functions.ExecutionContext;
 import com.microsoft.azure.functions.HttpMethod;
@@ -9,8 +9,8 @@ import com.microsoft.azure.functions.annotation.AuthorizationLevel;
 import com.microsoft.azure.functions.annotation.FunctionName;
 import com.microsoft.azure.functions.annotation.HttpTrigger;
 import org.springframework.cloud.function.adapter.azure.AzureSpringBootRequestHandler;
-import ragna.az.function.hello.model.Greeting;
-import ragna.az.function.hello.model.User;
+import ragna.az.function.hello.dto.Greeting;
+import ragna.az.function.hello.dto.User;
 
 import java.util.Optional;
 

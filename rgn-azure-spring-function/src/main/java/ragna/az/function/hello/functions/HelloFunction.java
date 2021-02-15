@@ -1,9 +1,9 @@
-package ragna.az.function.hello;
+package ragna.az.function.hello.functions;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import ragna.az.function.hello.model.Greeting;
-import ragna.az.function.hello.model.User;
+import ragna.az.function.hello.dto.Greeting;
+import ragna.az.function.hello.dto.User;
 
 import java.util.function.Function;
 

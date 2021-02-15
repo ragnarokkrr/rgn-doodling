@@ -1,4 +1,4 @@
-package ragna.az.function.hello.model;
+package ragna.az.function.hello.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,0 +1,3 @@
+spring.data.mongodb:
+  database: <REPLACE_ME>
+  uri: <REPLACE_ME>

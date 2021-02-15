@@ -3,8 +3,9 @@ package ragna.az.function.hello;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.cloud.function.adapter.azure.AzureSpringBootRequestHandler;
-import ragna.az.function.hello.model.Greeting;
-import ragna.az.function.hello.model.User;
+import ragna.az.function.hello.dto.Greeting;
+import ragna.az.function.hello.dto.User;
+import ragna.az.function.hello.functions.HelloFunction;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
