@@ -41,6 +41,7 @@ Todo
 - [ ] embed gatling tests
 - [ ] local testing with cosmos simulator
 - [ ] deploy native graalvm function
+- [ ] configure azure functions proxies to create a REST API from individual functions
 
 
 Reference
