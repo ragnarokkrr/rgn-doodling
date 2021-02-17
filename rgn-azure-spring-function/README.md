@@ -1,6 +1,8 @@
 Azure spring cloud function
 ===========================
 
+Azure function implemented using Spring Cloud Functions and accessing Cosmos DB with Mongodb API.
+
 
 Run the Function locally
 ------------------------
