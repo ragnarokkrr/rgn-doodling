@@ -36,11 +36,11 @@ mvn azure-functions:deploy
 Todo
 ----
 
-- [] Use functional configuration to speed up startup
-- [x] access mongodb api from cosmosdb
-- [] embed gatling tests
-- [] local testing with cosmos simulator
-- [] deploy native graalvm function
+[ ] Use functional configuration to speed up startup
+[x] access mongodb api from cosmosdb
+[ ] embed gatling tests
+[ ] local testing with cosmos simulator
+[ ] deploy native graalvm function
 
 
 Reference
