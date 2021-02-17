@@ -49,6 +49,7 @@ Todo
 - [ ] local testing with cosmos simulator
 - [ ] deploy native graalvm function
 - [ ] configure azure functions proxies to create a REST API from individual functions
+- [ ] access resources (k8s, web services, db's) from other azure virtual networks/regions from function and vice-versa
 
 
 Reference
