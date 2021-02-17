@@ -28,6 +28,13 @@ Deploy the Function to Azure Functions
 **Connect to azure using maven**  
 https://github.com/microsoft/azure-maven-plugins/wiki/Authentication
 
+
+**Run locally**  
+```
+mvn clean package
+mvn azure-functions:run
+```
+
 **Deploy**  
 ```
 mvn azure-functions:deploy
