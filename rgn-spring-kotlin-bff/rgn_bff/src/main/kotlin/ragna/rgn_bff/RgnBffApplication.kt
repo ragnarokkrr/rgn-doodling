@@ -45,14 +45,15 @@ class EmployeeAggregateController(
 
     @GetMapping("/ui/v1/async/employees/{id}")
     fun getAggregateEmployeeAsync(@PathVariable id: Long): EmployeeAggregate = runBlocking {
-        val deptDeferred: Deferred<Dept> = GlobalScope.async {
+        val deptDeferred: Deferred<Dept> =        GlobalScope.async {
             deptClient.getById(id)!!
         }
 
         val employeeDeferred: Deferred<Employee> = GlobalScope.async {
             employeeClient.getById(id)!!
         }
-        val dept = deptDeferred.await()
+
+             val dept = deptDeferred.await()
         val employee = employeeDeferred.await()
 
         val employeeAggregate = EmployeeAggregate(
@@ -97,10 +98,8 @@ data class EmployeeAggregate(
         val deptId: Long = 0,
         val deptName: String = ""
 ) {
-    companion object Const {
-        val EMPLOYEE_AGGREGATE: EmployeeAggregate = EmployeeAggregate(id = 0,
-                name = ""
-        )
+    companion object {
+        val EMPLOYEE_AGGREGATE: EmployeeAggregate = EmployeeAggregate(id = 0, name = "")
     }
 }
 
