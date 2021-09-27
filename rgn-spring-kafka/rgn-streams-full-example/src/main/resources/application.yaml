@@ -1,0 +1,29 @@
+spring.cloud:
+  stream:
+    function:
+      definition: planeEventProcessor;flightEventConsumer
+    kafka:
+      bindings:
+        planeEventProcessor-in-0:
+          consumer:
+            enableDlq: true # When an exception happens and there are no more retries configured, the message will be
+            #sent to the dead letter topic of this binding
+            dlqName: plane-events-dlq-v1
+        flightEventConsumer-in-0:
+          consumer:
+            enableDlq: true
+            dlqName: flight-events-dlq-v1
+    bindings:
+      planeEventProcessor-in-0:
+        destination: plane-events-v1 #topic that bean will consume (plane event)
+        group: flight-api # consumer group
+        consumer:
+          retryable-exceptions:
+            ragna.kafka.flightapi.plane.infra.stream.NoFlightFoundException: false
+      planeEventProcessor-out-0:
+        destination: flight-events-v1 # destination topic with (flight event)
+      flightEventConsumer-in-0:
+        destination: flight-events-v1 # consumer's topic
+        group: flight-api
+      flightArrived-out-0:
+        destination: flight-arrived-v1
