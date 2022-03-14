@@ -1,0 +1,25 @@
+{
+  "namespace": "ragna.cqrs.query.model",
+  "type": "record",
+  "name": "OrderedItem",
+  "fields": [
+    {
+      "name": "customerId",
+      "type": "string"
+    },
+    {
+      "name": "label",
+      "type": "string"
+    },
+    {
+      "name": "price",
+      "type": "double"
+    },
+    {
+      "name": "quantity",
+      "type": "int",
+      "default": 1,
+      "order": "ignore"
+    }
+  ]
+}
