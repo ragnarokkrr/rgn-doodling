@@ -29,7 +29,7 @@
         <mapstruct.version>1.4.1.Final</mapstruct.version>
         <lombok.version>1.18.20</lombok.version>
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
-        <spring-boot-web.version>2.5.6</spring-boot-web.version>
+        <spring-boot-web.version>2.5.12</spring-boot-web.version>
         <spring-cloud-stream.version>3.1.2</spring-cloud-stream.version>
         <spring-cloud-function.version>3.1.5</spring-cloud-function.version>
     </properties>
