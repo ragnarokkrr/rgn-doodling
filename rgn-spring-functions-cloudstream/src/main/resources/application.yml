@@ -1,0 +1,13 @@
+spring:
+  cloud.function:
+    definition: uppercase|reverseReactive
+    #definition: uppercase|reverse
+  cloud.stream:
+    bindings:
+      uppercasereverseReactive-in-0:
+        destination: plain-string
+        group: demo
+      uppercasereverseReactive-out-0:
+        destination: processed-string
+
+
